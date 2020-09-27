@@ -46,5 +46,15 @@ namespace Qlphukien
             QLnhanvien qLnhanvien = new QLnhanvien();
             qLnhanvien.Show();
         }
+
+        private void btnLoaiSP_Click(object sender, EventArgs e)
+        {  
+           
+        }
+
+        private void btnSanPham_Click(object sender, EventArgs e)
+        {  
+           
+        }
     }
 }

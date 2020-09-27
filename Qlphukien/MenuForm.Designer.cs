@@ -59,6 +59,7 @@
             this.btnSanPham.Text = "Sản Phẩm";
             this.btnSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSanPham.UseVisualStyleBackColor = false;
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
             // btnLoaiSP
             // 
@@ -70,6 +71,7 @@
             this.btnLoaiSP.Text = "Loại Sản Phẩm";
             this.btnLoaiSP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLoaiSP.UseVisualStyleBackColor = true;
+            this.btnLoaiSP.Click += new System.EventHandler(this.btnLoaiSP_Click);
             // 
             // btnNhanVien
             // 

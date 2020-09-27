@@ -31,6 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLnhanvien));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnCapnhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -54,16 +62,9 @@
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.txtTukhoa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -96,11 +97,56 @@
             this.dgvNhanVien.Size = new System.Drawing.Size(937, 191);
             this.dgvNhanVien.TabIndex = 1;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
+            this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã nhân viên";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Họ Tên";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 160;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giới tính";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Ngày sinh";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 120;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Địa chỉ";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 120;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Số điện thoại";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Mật khẩu";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 120;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Quyền";
+            this.Column8.Name = "Column8";
             // 
             // btnThem
             // 
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.Location = new System.Drawing.Point(105, 278);
+            this.btnThem.Location = new System.Drawing.Point(128, 278);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(128, 38);
             this.btnThem.TabIndex = 2;
@@ -112,7 +158,7 @@
             // btnCapnhat
             // 
             this.btnCapnhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapnhat.Image")));
-            this.btnCapnhat.Location = new System.Drawing.Point(312, 278);
+            this.btnCapnhat.Location = new System.Drawing.Point(364, 278);
             this.btnCapnhat.Name = "btnCapnhat";
             this.btnCapnhat.Size = new System.Drawing.Size(128, 38);
             this.btnCapnhat.TabIndex = 3;
@@ -124,7 +170,7 @@
             // btnXoa
             // 
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(544, 278);
+            this.btnXoa.Location = new System.Drawing.Point(588, 278);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(128, 38);
             this.btnXoa.TabIndex = 4;
@@ -136,9 +182,9 @@
             // btnTimkiem
             // 
             this.btnTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimkiem.Image")));
-            this.btnTimkiem.Location = new System.Drawing.Point(758, 278);
+            this.btnTimkiem.Location = new System.Drawing.Point(776, 15);
             this.btnTimkiem.Name = "btnTimkiem";
-            this.btnTimkiem.Size = new System.Drawing.Size(128, 38);
+            this.btnTimkiem.Size = new System.Drawing.Size(105, 40);
             this.btnTimkiem.TabIndex = 5;
             this.btnTimkiem.Text = "Tìm kiếm";
             this.btnTimkiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -305,7 +351,7 @@
             // btnThoat
             // 
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(841, 494);
+            this.btnThoat.Location = new System.Drawing.Point(857, 494);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(105, 40);
             this.btnThoat.TabIndex = 23;
@@ -323,50 +369,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(105, 110);
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã nhân viên";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Họ Tên";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 160;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giới tính";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Ngày sinh";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 120;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Địa chỉ";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 120;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Số điện thoại";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Mật khẩu";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 120;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Quyền";
-            this.Column8.Name = "Column8";
             // 
             // label10
             // 
@@ -388,11 +390,20 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // txtTukhoa
+            // 
+            this.txtTukhoa.Location = new System.Drawing.Point(595, 24);
+            this.txtTukhoa.Name = "txtTukhoa";
+            this.txtTukhoa.Size = new System.Drawing.Size(151, 20);
+            this.txtTukhoa.TabIndex = 27;
+            this.txtTukhoa.Text = "bạn muốn tìm ai?";
+            // 
             // QLnhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(986, 546);
+            this.Controls.Add(this.txtTukhoa);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox1);
@@ -467,5 +478,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.TextBox txtTukhoa;
     }
 }

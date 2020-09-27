@@ -132,10 +132,12 @@ namespace Qlphukien.DAO
         {
             List<NhanVien> list = new List<NhanVien>();
             con.Open();
-            string sql = "select * from NhanVien where MaNhanVien = @manv or HoTenNhanVien = @tennv";
+            string sql = "select * from NhanVien where  HoTenNhanVien LIKE N'%" + nvcantim.TenNv +"%'";
             SqlCommand cmd = new SqlCommand(sql, con);
+            /*
             cmd.Parameters.AddWithValue("manv", nvcantim.MaNv);
             cmd.Parameters.AddWithValue("tennv", nvcantim.TenNv);
+            */
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())

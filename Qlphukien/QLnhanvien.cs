@@ -182,7 +182,7 @@ namespace Qlphukien
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int indexrow = e.RowIndex;
-            if (indexrow > 0)
+            if (indexrow >= 0)
             {
                 txtManv.Text = dgvNhanVien.Rows[indexrow].Cells[0].Value.ToString();
                 txtTenNv.Text = dgvNhanVien.Rows[indexrow].Cells[1].Value.ToString();
@@ -226,15 +226,15 @@ namespace Qlphukien
 
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            string manv = txtManv.Text;
-            string tennv = txtTenNv.Text;
-            if(manv.Equals("") && tennv.Equals(""))
+            string tukhoa = txtTukhoa.Text;
+         
+            if(tukhoa.Equals(""))
             {
-                MessageBox.Show("Phải nhập mã nhân viên hoặc tên nhân viên để tìm kiếm !!!!");
+                MessageBox.Show("Phải nhập mã nhân viên hoặc tên nhân viên vào ô  để tìm kiếm !!!!");
             }
             else
             {
-                NhanVien nvcantim = new NhanVien(manv, tennv, "Nam", "2020-10-10", "Hà nội", "0151520221", "adasd", "user");
+                NhanVien nvcantim = new NhanVien(tukhoa, tukhoa, "Nam", "2020-10-10", "Hà nội", "0151520221", "adasd", "user");
                 List<NhanVien> listNVtimdc = nvDao.SearchNhanVien(nvcantim);
                 if (listNVtimdc.Count > 0)
                 {
@@ -250,6 +250,11 @@ namespace Qlphukien
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             displayNhanVien(dgvNhanVien, nvDao.getAllNhanVien());
+        }
+
+        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

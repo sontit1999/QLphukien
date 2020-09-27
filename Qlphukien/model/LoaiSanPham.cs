@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Qlphukien.model
 {
-    class LoaiSanPham
+    public class LoaiSanPham
     {
         public string MaLoaiSP { get; set; }
         public string TenLoaiSP { get; set; }
