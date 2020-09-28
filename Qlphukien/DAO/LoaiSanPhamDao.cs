@@ -16,7 +16,7 @@ namespace Qlphukien.DAO
         {
             con = UtilsConnect.getConnection();
         }
-        // hàm get all nhân viên
+        // hàm get all loại sản phẩm
         public List<LoaiSanPham> getAllLoaiSP()
         {
             List<LoaiSanPham> list = new List<LoaiSanPham>();
@@ -82,7 +82,7 @@ namespace Qlphukien.DAO
         {
             List<LoaiSanPham> list = new List<LoaiSanPham>();
             con.Open();
-            string sql = "select * from LoaiSanPham where MaLoaiSanPham = @malsp or TenLoaiSanPham = @tenlsp";
+            string sql = "select * from LoaiSanPham where TenLoaiSanPham LIKE N'%" + loaisp.TenLoaiSP + "%'"; 
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("malsp", loaisp.MaLoaiSP);
             cmd.Parameters.AddWithValue("tenlsp", loaisp.TenLoaiSP);

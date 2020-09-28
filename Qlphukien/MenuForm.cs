@@ -48,13 +48,15 @@ namespace Qlphukien
         }
 
         private void btnLoaiSP_Click(object sender, EventArgs e)
-        {  
-           
+        {
+            QLloaiSP qLloaiSP = new QLloaiSP();
+            qLloaiSP.Show();
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)
-        {  
-           
+        {
+            QLSanPham qLSanPham = new QLSanPham();
+            qLSanPham.Show();
         }
     }
 }

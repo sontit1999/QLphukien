@@ -81,7 +81,7 @@ namespace Qlphukien.DAO
         public bool AddNhanVien(NhanVien nv)
         {
             con.Open();
-            // string sql = "insert into NhanVien values('@manv',N'@tennv',N'@gt','@ns',N'@dc','@sdt','@mk','@role')";
+           
             string sql = "insert into NhanVien values(@manv,@tennv,@gt,@ns,@dc,@sdt,@mk,@role)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("manv", nv.MaNv);
@@ -100,7 +100,7 @@ namespace Qlphukien.DAO
         public bool UpdateNhanVien(NhanVien nv)
         {
             con.Open();
-            // string sql = "insert into NhanVien values('@manv',N'@tennv',N'@gt','@ns',N'@dc','@sdt','@mk','@role')";
+           
             string sql = "update NhanVien set HoTenNhanVien = @tennv ,GioiTinh = @gt, NgaySinh = @ns,DiaChi = @dc,SoDienThoai = @sdt,MatKhau=@mk,PhanQuyen = @role where MaNhanVien = @manv";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("manv", nv.MaNv);
@@ -119,7 +119,7 @@ namespace Qlphukien.DAO
         public bool DeleteNhanVien(string manv)
         {
             con.Open();
-            // string sql = "insert into NhanVien values('@manv',N'@tennv',N'@gt','@ns',N'@dc','@sdt','@mk','@role')";
+          
             string sql = "delete from NhanVien where MaNhanVien = @manv";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("manv", manv);
@@ -134,10 +134,7 @@ namespace Qlphukien.DAO
             con.Open();
             string sql = "select * from NhanVien where  HoTenNhanVien LIKE N'%" + nvcantim.TenNv +"%'";
             SqlCommand cmd = new SqlCommand(sql, con);
-            /*
-            cmd.Parameters.AddWithValue("manv", nvcantim.MaNv);
-            cmd.Parameters.AddWithValue("tennv", nvcantim.TenNv);
-            */
+         
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())

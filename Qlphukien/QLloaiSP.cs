@@ -150,15 +150,15 @@ namespace Qlphukien
 
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            string malsp = txtMaLoaisp.Text;
-            string tenlsp = txtTenLoaisp.Text;
-            if (malsp.Equals("") && tenlsp.Equals(""))
+          
+            string tukhoa = txtTuKhoa.Text;
+            if (tukhoa.Equals(""))
             {
-                MessageBox.Show("Phải nhập mã loại sản phẩm hoặc tên loại sản phẩm để tìm kiếm !!!!");
+                MessageBox.Show("Phải nhập vào ô để tìm kiếm !!!!");
             }
             else
             {
-                LoaiSanPham lspcantim = new LoaiSanPham(malsp, tenlsp, "aaa");
+                LoaiSanPham lspcantim = new LoaiSanPham(tukhoa, tukhoa, tukhoa);
 
                 List<LoaiSanPham> listLoaiSPtimdc = lspDao.SearchLoaiSP(lspcantim);
                 if (listLoaiSPtimdc.Count > 0)
@@ -180,6 +180,16 @@ namespace Qlphukien
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtTenLoaisp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

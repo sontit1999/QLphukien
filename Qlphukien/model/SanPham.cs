@@ -23,7 +23,7 @@ namespace Qlphukien.model
         }
         public SanPham(string masp,string maloaisp,string tensp,int soluong,int gianhap,int giaban,string baohanh,string donvi,string motasp)
         {
-            this.TenSP = tensp;
+            this.MaSP = masp;
             this.MaLoaiSP = maloaisp;
             this.TenSP = tensp;
             this.SoLuong = soluong;

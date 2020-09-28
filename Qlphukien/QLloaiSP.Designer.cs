@@ -46,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaLoaisp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtTuKhoa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiSP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +106,7 @@
             // btnTimkiem
             // 
             this.btnTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimkiem.Image")));
-            this.btnTimkiem.Location = new System.Drawing.Point(750, 299);
+            this.btnTimkiem.Location = new System.Drawing.Point(810, 16);
             this.btnTimkiem.Name = "btnTimkiem";
             this.btnTimkiem.Size = new System.Drawing.Size(128, 38);
             this.btnTimkiem.TabIndex = 31;
@@ -117,7 +118,7 @@
             // btnXoa
             // 
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(750, 214);
+            this.btnXoa.Location = new System.Drawing.Point(767, 214);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(128, 38);
             this.btnXoa.TabIndex = 30;
@@ -129,7 +130,7 @@
             // btnCapnhat
             // 
             this.btnCapnhat.Image = ((System.Drawing.Image)(resources.GetObject("btnCapnhat.Image")));
-            this.btnCapnhat.Location = new System.Drawing.Point(551, 299);
+            this.btnCapnhat.Location = new System.Drawing.Point(602, 301);
             this.btnCapnhat.Name = "btnCapnhat";
             this.btnCapnhat.Size = new System.Drawing.Size(128, 38);
             this.btnCapnhat.TabIndex = 29;
@@ -141,7 +142,7 @@
             // btnThem
             // 
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.Location = new System.Drawing.Point(551, 214);
+            this.btnThem.Location = new System.Drawing.Point(602, 214);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(128, 38);
             this.btnThem.TabIndex = 28;
@@ -153,9 +154,9 @@
             // btnThoat
             // 
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(885, 479);
+            this.btnThoat.Location = new System.Drawing.Point(767, 301);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(105, 40);
+            this.btnThoat.Size = new System.Drawing.Size(128, 40);
             this.btnThoat.TabIndex = 32;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -164,33 +165,35 @@
             // 
             // txtMotaLoaiSP
             // 
-            this.txtMotaLoaiSP.Location = new System.Drawing.Point(616, 159);
+            this.txtMotaLoaiSP.Location = new System.Drawing.Point(728, 159);
             this.txtMotaLoaiSP.Name = "txtMotaLoaiSP";
-            this.txtMotaLoaiSP.Size = new System.Drawing.Size(262, 20);
+            this.txtMotaLoaiSP.Size = new System.Drawing.Size(140, 20);
             this.txtMotaLoaiSP.TabIndex = 38;
             // 
             // txtTenLoaisp
             // 
-            this.txtTenLoaisp.Location = new System.Drawing.Point(616, 115);
+            this.txtTenLoaisp.Location = new System.Drawing.Point(728, 119);
             this.txtTenLoaisp.Name = "txtTenLoaisp";
-            this.txtTenLoaisp.Size = new System.Drawing.Size(262, 20);
+            this.txtTenLoaisp.Size = new System.Drawing.Size(140, 20);
             this.txtTenLoaisp.TabIndex = 37;
+            this.txtTenLoaisp.TextChanged += new System.EventHandler(this.txtTenLoaisp_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(523, 162);
+            this.label4.Location = new System.Drawing.Point(613, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 36;
             this.label4.Text = "Mô tả";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(523, 118);
+            this.label3.Location = new System.Drawing.Point(613, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 35;
@@ -198,26 +201,34 @@
             // 
             // txtMaLoaisp
             // 
-            this.txtMaLoaisp.Location = new System.Drawing.Point(616, 75);
+            this.txtMaLoaisp.Location = new System.Drawing.Point(728, 85);
             this.txtMaLoaisp.Name = "txtMaLoaisp";
-            this.txtMaLoaisp.Size = new System.Drawing.Size(262, 20);
+            this.txtMaLoaisp.Size = new System.Drawing.Size(140, 20);
             this.txtMaLoaisp.TabIndex = 34;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(523, 82);
+            this.label2.Location = new System.Drawing.Point(613, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 33;
             this.label2.Text = "Mã loại sản phẩm";
+            // 
+            // txtTuKhoa
+            // 
+            this.txtTuKhoa.Location = new System.Drawing.Point(602, 23);
+            this.txtTuKhoa.Name = "txtTuKhoa";
+            this.txtTuKhoa.Size = new System.Drawing.Size(154, 20);
+            this.txtTuKhoa.TabIndex = 39;
             // 
             // QLloaiSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 531);
+            this.Controls.Add(this.txtTuKhoa);
             this.Controls.Add(this.txtMotaLoaiSP);
             this.Controls.Add(this.txtTenLoaisp);
             this.Controls.Add(this.label4);
@@ -260,5 +271,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaLoaisp;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTuKhoa;
     }
 }

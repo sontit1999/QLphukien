@@ -7,8 +7,8 @@ C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.csproj.Gener
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.csproj.CoreCompileInputs.cache
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.exe
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.pdb
-C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.csprojAssemblyReference.cache
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.MenuForm.resources
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.QLnhanvien.resources
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.QLloaiSP.resources
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.QLSanPham.resources
+C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.csprojAssemblyReference.cache
