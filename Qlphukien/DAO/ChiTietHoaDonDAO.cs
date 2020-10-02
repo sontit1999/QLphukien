@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 
 namespace Qlphukien.DAO
 {
-    class HoaDonDao
+    
+    class ChiTietHoaDonDAO
     {
         SqlConnection con;
-        public HoaDonDao()
+        public ChiTietHoaDonDAO()
         {
             con = UtilsConnect.getConnection();
         }
         // hàm get all hóa đơn
-        public List<HoaDon> getAllHD()
+        public List<ChiTietHoaDon> getAllChiTietHD()
         {
-            List<HoaDon> list = new List<HoaDon>();
-            HoaDon hoadon = null;
+            List<ChiTietHoaDon> list = new List<ChiTietHoaDon>();
+            ChiTietHoaDon chiTietHoaDon = null;
             con.Open();
-            string sql = "select * from HoaDon";
+            string sql = "select * from ChiTiet_HoaDon";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             SqlDataReader dr = cmd.ExecuteReader();
@@ -30,36 +31,36 @@ namespace Qlphukien.DAO
             while (dr.Read())
             {
 
-                hoadon = new HoaDon(dr["MaHoaDon"].ToString(), dr["MaNhanVien"].ToString(), dr["NgayLap"].ToString(), Convert.ToInt32(dr["TongTienHoaDon"]));
-                list.Add(hoadon);
+                chiTietHoaDon = new ChiTietHoaDon(dr["MaHoaDon"].ToString(), dr["MaSanPham"].ToString(), Convert.ToInt32(dr["SoLuong"]), Convert.ToInt32(dr["TienPhaiTra"]));
+                list.Add(chiTietHoaDon);
             }
             con.Close();
             return list;
         }
         // hàm thêm hóa đơn vào cơ sở dữ liệu
-        public bool AddHoaDon(HoaDon hd)
+        public bool AddCTHoaDon(ChiTietHoaDon cthd)
         {
             con.Open();
 
-            string sql = "insert into HoaDon values(@mahd, @manv, @ngay,@tongtien)";
+            string sql = "insert into ChiTiet_HoaDon values(@mahd, @masp, @sl, @tien)";
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("mahd", hd.MaHD);
-            cmd.Parameters.AddWithValue("manv", hd.MaNV);
-            cmd.Parameters.AddWithValue("ngay", hd.NgayLap);
-            cmd.Parameters.AddWithValue(" tongtien", hd.TongTienHD);
-           
+            cmd.Parameters.AddWithValue("mahd", cthd.MaHD);
+            cmd.Parameters.AddWithValue("masp", cthd.MaSP);
+            cmd.Parameters.AddWithValue("sl",cthd.SoLuongSP);
+            cmd.Parameters.AddWithValue("tien", cthd.TienPhaiTra);
+
             cmd.ExecuteNonQuery();
             con.Close();
             return true;
         }
         // hàm xóa hóa đơn 
-        public bool DeleteHoaDon(string mahd)
+        public bool DeleteHoaDon(string mahdon)
         {
             con.Open();
 
-            string sql = "delete  from HoaDon where MaHoaDon = @mahd";
+            string sql = "delete from ChiTiet_HoaDon where MaHoaDon = @mahd";
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("mahd", mahd);
+            cmd.Parameters.AddWithValue("mahd",mahdon);
             cmd.ExecuteNonQuery();
             con.Close();
             return true;

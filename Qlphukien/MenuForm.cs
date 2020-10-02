@@ -58,5 +58,11 @@ namespace Qlphukien
             QLSanPham qLSanPham = new QLSanPham();
             qLSanPham.Show();
         }
+
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            QliHoadon qliHoadon = new QliHoadon();
+            qliHoadon.Show();
+        }
     }
 }

@@ -77,6 +77,25 @@ namespace Qlphukien.DAO
             con.Close();
             return nv;
         }
+        // hàm check số điện thoại dùng hay  chưa
+        public NhanVien CheckPhoneExist(string phoneNumber)
+        {
+            NhanVien nv = null;
+            con.Open();
+            string sql = "select * from NhanVien where SoDienThoai = @sdt";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("sdt", phoneNumber);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                nv = new NhanVien(dr["MaNhanVien"].ToString(), dr["HoTenNhanVien"].ToString(), dr["GioiTinh"].ToString(), dr["NgaySinh"].ToString(), dr["DiaChi"].ToString(), dr["SoDienThoai"].ToString(), dr["MatKhau"].ToString(), dr["PhanQuyen"].ToString());
+                break;
+            }
+            con.Close();
+            return nv;
+        }
         // hàm thêm nhân viên vào cơ sở dữ liệu
         public bool AddNhanVien(NhanVien nv)
         {

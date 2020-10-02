@@ -82,14 +82,22 @@ namespace Qlphukien
             }
             else
             {
+                NhanVien nvResult = nvDao.CheckPhoneExist(sdt);
                 NhanVien nv = new NhanVien(manv, tennv, gioitinh, ngaysinh, diachi, sdt, matkhau, role);
                 NhanVien nvTimdc = nvDao.CheckNhanVien(nv.MaNv);
                 if(nvTimdc == null)
                 {
-                    nvDao.AddNhanVien(nv);
-                    displayNhanVien(dgvNhanVien, nvDao.getAllNhanVien());
-                    clearAllFiled();
-                    MessageBox.Show("Đã thêm nhân viên !");
+                    if (nvResult == null)
+                    {
+                        nvDao.AddNhanVien(nv);
+                        displayNhanVien(dgvNhanVien, nvDao.getAllNhanVien());
+                        clearAllFiled();
+                        MessageBox.Show("Đã thêm nhân viên !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhân viên " + nvResult.TenNv + " đã sử dụng số điện thoại này !! Vui lòng kiểm tra lại");
+                    }
                 }
                 else
                 {

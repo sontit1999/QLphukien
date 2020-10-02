@@ -12,3 +12,4 @@ C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.QLnhanvien.r
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.QLloaiSP.resources
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.QLSanPham.resources
 C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.csprojAssemblyReference.cache
+C:\Users\tvson\source\repos\Qlphukien\Qlphukien\obj\Debug\Qlphukien.QliHoadon.resources
