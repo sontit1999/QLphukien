@@ -11,7 +11,7 @@ namespace Qlphukien.utils
     class UtilsConnect
     {
         static SqlConnection con;
-        static string connectString = @"Data Source=DESKTOP-CMEJ8G1\SQLEXPRESS;Initial Catalog=qlDoDienTu;Integrated Security=True";
+        static string connectString = @"Data Source=DESKTOP-CMEJ8G1\SQLEXPRESS;Initial Catalog=quanlyphukien;Integrated Security=True";
         public UtilsConnect()
         {
             con = new SqlConnection(connectString);

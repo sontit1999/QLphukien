@@ -245,6 +245,7 @@
             this.Controls.Add(this.label1);
             this.Name = "QLloaiSP";
             this.Text = "QLloaiSP";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.QLloaiSP_FormClosed);
             this.Load += new System.EventHandler(this.QLloaiSP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiSP)).EndInit();
             this.ResumeLayout(false);

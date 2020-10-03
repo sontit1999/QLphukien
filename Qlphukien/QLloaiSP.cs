@@ -14,12 +14,19 @@ namespace Qlphukien
 {
     public partial class QLloaiSP : Form
     {
+        QLSanPham qLSanPham = null;
+        public bool isClose = false;
+        SanPhamDao spDao = new SanPhamDao();
         LoaiSanPhamDao lspDao = new LoaiSanPhamDao();
         public QLloaiSP()
         {
             InitializeComponent();
         }
-
+        public QLloaiSP(QLSanPham qlsp)
+        {
+            InitializeComponent();
+            this.qLSanPham = qlsp;
+        }
         private void QLloaiSP_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
@@ -68,6 +75,10 @@ namespace Qlphukien
                     displayLoaiSP(dgvLoaiSP, lspDao.getAllLoaiSP());
                     clearAllField();
                     MessageBox.Show("Đã thêm loại sản phẩm !");
+                    if (isClose)
+                    {
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -112,6 +123,10 @@ namespace Qlphukien
                     displayLoaiSP(dgvLoaiSP, lspDao.getAllLoaiSP());
                     clearAllField();
                     MessageBox.Show("Đã cập nhật thông tin loại sản phẩm " + loaiSanPham.TenLoaiSP);
+                    if (isClose)
+                    {
+                        this.Close();
+                    }
                 }
             }
         }
@@ -137,10 +152,17 @@ namespace Qlphukien
                     DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa loại sản phẩm " + lsp.TenLoaiSP, "Xóa loại sản phẩm", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
+                        spDao.DeletespByLoai(lsp.MaLoaiSP);
                         lspDao.DeleteLoaisp(lsp.MaLoaiSP);
                         displayLoaiSP(dgvLoaiSP, lspDao.getAllLoaiSP());
                         clearAllField();
                         MessageBox.Show("Đã xóa loại sản phẩm :  " + lsp.TenLoaiSP + " !");
+                       
+
+                        if (isClose)
+                        {
+                            this.Close();
+                        }
 
                     }
                 }
@@ -179,6 +201,10 @@ namespace Qlphukien
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+            if (qLSanPham != null)
+            {
+                qLSanPham.ResfreshLoaiSP();
+            }
             this.Close();
         }
 
@@ -190,6 +216,14 @@ namespace Qlphukien
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void QLloaiSP_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (qLSanPham != null)
+            {
+                qLSanPham.ResfreshLoaiSP();
+            }
         }
     }
 }

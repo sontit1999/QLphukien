@@ -37,6 +37,27 @@ namespace Qlphukien.DAO
             con.Close();
             return list;
         }
+        // hàm get all sản phẩm theo mã loại sản phẩm
+        public List<SanPham> getAllSPByMaloai(string maloaisp)
+        {
+            List<SanPham> list = new List<SanPham>();
+            SanPham SanPham = null;
+            con.Open();
+            string sql = "select * from SanPham where MaLoaiSanPham = @malsp";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("malsp", maloaisp);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+
+                SanPham = new SanPham(dr["MaSanPham"].ToString(), dr["MaLoaiSanPham"].ToString(), dr["TenSanPham"].ToString(), Convert.ToInt32(dr["SoLuong"]), Convert.ToInt32(dr["GiaNhap"]), Convert.ToInt32(dr["GiaBan"]), dr["ThoiGianBaoHanh"].ToString(), dr["DonVi"].ToString(), dr["MoTa"].ToString());
+
+                list.Add(SanPham);
+            }
+            con.Close();
+            return list;
+        }
         // hàm thêm sản phẩm vào cơ sở dữ liệu
         public bool AddSP(SanPham sp)
         {
@@ -61,8 +82,8 @@ namespace Qlphukien.DAO
         public bool Updatesp(SanPham sp)
         {
             con.Open();
-
-            string sql = "update SanPham set MaLoaiSanPham = @malsp,TenSanPham = @tensp , SoLuong  = @sl, GiaNhap = @gianhap, GiaBan = @giaban, ThoiGianBaoHanh =  @baohanh,DonVi = @donvi, MoTa = @mota where MaSanPham = @masp";
+            //  string sql = "update SanPham set MaLoaiSanPham = @malsp,TenSanPham = @tensp , SoLuong  = @sl, GiaNhap = @gianhap, GiaBan = @giaban, ThoiGianBaoHanh =  @baohanh,DonVi = @donvi, MoTa = @mota where MaSanPham = @masp";
+            string sql = "update SanPham set TenSanPham = @tensp , SoLuong  = @sl, GiaNhap = @gianhap, GiaBan = @giaban, ThoiGianBaoHanh =  @baohanh,DonVi = @donvi, MoTa = @mota where MaSanPham = @masp";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("malsp", sp.MaLoaiSP);
             cmd.Parameters.AddWithValue("tensp", sp.TenSP);
@@ -77,7 +98,7 @@ namespace Qlphukien.DAO
             con.Close();
             return true;
         }
-        // hàm xóa  loại sản phẩm
+        // hàm xóa  sản phẩm
         public bool Deletesp(string masp)
         {
             con.Open();
@@ -85,6 +106,18 @@ namespace Qlphukien.DAO
             string sql = "delete from SanPham where MaSanPham = @masp";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("masp", masp);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return true;
+        }
+        // hàm xóa  sản phẩm theo loại
+        public bool DeletespByLoai(string malsp)
+        {
+            con.Open();
+
+            string sql = "delete from SanPham where MaLoaiSanPham = @malsp";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("malsp", malsp);
             cmd.ExecuteNonQuery();
             con.Close();
             return true;

@@ -26,7 +26,7 @@ namespace Qlphukien
             cbLoaiSP.DataSource = list;
             cbLoaiSP.DisplayMember = "TenLoaiSP";
             cbLoaiSP.ValueMember = "MaLoaiSP";
-
+            cbBaohanh.SelectedIndex = 0;
 
 
         }
@@ -50,7 +50,8 @@ namespace Qlphukien
             string soluong = txtSoLuong.Text;
             string gianhap = txtGiaNhap.Text;
             string giaban = txtGiaBan.Text;
-            string baohanh = dateTimePickerThoiGianBH.Value.ToString("yyyy-MM-dd");
+            // string baohanh = dateTimePickerThoiGianBH.Value.ToString("yyyy-MM-dd");
+            string baohanh = cbBaohanh.SelectedItem.ToString();
             string donvi = txtDonvi.Text;
             string mota = txtMotaSP.Text;
 
@@ -60,19 +61,28 @@ namespace Qlphukien
             }
             else
             {
-                SanPham sp = new SanPham(masp,maloaisp,tensp,int.Parse(soluong), int.Parse(gianhap), int.Parse(giaban), baohanh, donvi, mota);
-                SanPham sptimdc = spDao.CheckSP(sp.MaSP);
-                if (sptimdc == null)
+                if (int.Parse(soluong) <= 0)
                 {
-                    spDao.AddSP(sp);
-                    displaySanPhamToDgv(dgvSanPham,spDao.getAllSP());
-                    clearAllField();
-                    MessageBox.Show("Đã thêm loại sản phẩm !");
+                    MessageBox.Show("Số lượng sản phẩm phải lớn hơn 0 !");
                 }
                 else
                 {
-                    MessageBox.Show("Đã tồn tại loại sản phẩm  có mã : " + sp.MaSP);
+                    SanPham sp = new SanPham(masp, maloaisp, tensp, int.Parse(soluong), int.Parse(gianhap), int.Parse(giaban), baohanh, donvi, mota);
+                    SanPham sptimdc = spDao.CheckSP(sp.MaSP);
+                    if (sptimdc == null)
+                    {
+                        spDao.AddSP(sp);
+                        displaySanPhamToDgv(dgvSanPham, spDao.getAllSP());
+                        clearAllField();
+                        MessageBox.Show("Đã thêm sản phẩm !");
+                        displaySanPhamToDgv(dgvSanPham, spDao.getAllSPByMaloai(cbLoaiSP.SelectedValue.ToString()));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã tồn tại  sản phẩm  có mã : " + sp.MaSP);
+                    }
                 }
+                
             }
         }
         // hàm hiển thị list sản phẩm lên datagridview
@@ -93,7 +103,7 @@ namespace Qlphukien
                 dgv.Rows[i].Cells[3].Value = item.SoLuong;
                 dgv.Rows[i].Cells[4].Value = item.GiaNhap;
                 dgv.Rows[i].Cells[5].Value = item.GiaBan;
-                dgv.Rows[i].Cells[6].Value = Convert.ToDateTime(item.ThoiGianBaoHanh.ToString()).ToString("dd-MM-yyyy");
+                dgv.Rows[i].Cells[6].Value = item.ThoiGianBaoHanh.ToString();
                 dgv.Rows[i].Cells[7].Value = item.DonVi;
                 dgv.Rows[i].Cells[8].Value = item.MotaSP;
                 i++;
@@ -133,7 +143,8 @@ namespace Qlphukien
             string soluong = txtSoLuong.Text;
             string gianhap = txtGiaNhap.Text;
             string giaban = txtGiaBan.Text;
-            string baohanh = dateTimePickerThoiGianBH.Value.ToString("yyyy-MM-dd");
+           // string baohanh = dateTimePickerThoiGianBH.Value.ToString("yyyy-MM-dd");
+            string baohanh = cbBaohanh.SelectedItem.ToString();
             string donvi = txtDonvi.Text;
             string mota = txtMotaSP.Text;
 
@@ -223,6 +234,30 @@ namespace Qlphukien
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnThemLoaisp_Click(object sender, EventArgs e)
+        {
+            QLloaiSP qLloai = new QLloaiSP(this);
+            qLloai.isClose = true;
+            qLloai.Show();
+        }
+        public void ResfreshLoaiSP()
+        {
+            // set loại sản phẩm
+            List<LoaiSanPham> list = lspDao.getAllLoaiSP();
+            cbLoaiSP.DataSource = list;
+            cbLoaiSP.DisplayMember = "TenLoaiSP";
+            cbLoaiSP.ValueMember = "MaLoaiSP";
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtSoLuong.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                txtSoLuong.Text = "";
+            }
         }
     }
 }

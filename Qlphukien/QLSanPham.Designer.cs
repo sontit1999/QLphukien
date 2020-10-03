@@ -66,6 +66,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtMotaSP = new System.Windows.Forms.TextBox();
             this.txtTukhoa = new System.Windows.Forms.TextBox();
+            this.btnThemLoaisp = new System.Windows.Forms.Button();
+            this.cbBaohanh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +108,7 @@
             // cbLoaiSP
             // 
             this.cbLoaiSP.FormattingEnabled = true;
-            this.cbLoaiSP.Location = new System.Drawing.Point(636, 449);
+            this.cbLoaiSP.Location = new System.Drawing.Point(636, 327);
             this.cbLoaiSP.Name = "cbLoaiSP";
             this.cbLoaiSP.Size = new System.Drawing.Size(121, 21);
             this.cbLoaiSP.TabIndex = 49;
@@ -116,7 +118,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(509, 455);
+            this.label9.Location = new System.Drawing.Point(509, 331);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 13);
             this.label9.TabIndex = 48;
@@ -128,6 +130,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(121, 20);
             this.txtSoLuong.TabIndex = 47;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
             // 
             // label8
             // 
@@ -159,7 +162,7 @@
             // dateTimePickerThoiGianBH
             // 
             this.dateTimePickerThoiGianBH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerThoiGianBH.Location = new System.Drawing.Point(636, 328);
+            this.dateTimePickerThoiGianBH.Location = new System.Drawing.Point(636, 449);
             this.dateTimePickerThoiGianBH.Name = "dateTimePickerThoiGianBH";
             this.dateTimePickerThoiGianBH.Size = new System.Drawing.Size(121, 20);
             this.dateTimePickerThoiGianBH.TabIndex = 40;
@@ -168,7 +171,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(507, 331);
+            this.label5.Location = new System.Drawing.Point(509, 455);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 39;
@@ -390,11 +393,35 @@
             this.txtTukhoa.TabIndex = 57;
             this.txtTukhoa.Text = "bạn muốn tìm gì ?";
             // 
+            // btnThemLoaisp
+            // 
+            this.btnThemLoaisp.Location = new System.Drawing.Point(772, 328);
+            this.btnThemLoaisp.Name = "btnThemLoaisp";
+            this.btnThemLoaisp.Size = new System.Drawing.Size(75, 23);
+            this.btnThemLoaisp.TabIndex = 58;
+            this.btnThemLoaisp.Text = "Thêm loại";
+            this.btnThemLoaisp.UseVisualStyleBackColor = true;
+            this.btnThemLoaisp.Click += new System.EventHandler(this.btnThemLoaisp_Click);
+            // 
+            // cbBaohanh
+            // 
+            this.cbBaohanh.FormattingEnabled = true;
+            this.cbBaohanh.Items.AddRange(new object[] {
+            "6 tháng",
+            "1 năm ",
+            "2 năm"});
+            this.cbBaohanh.Location = new System.Drawing.Point(636, 447);
+            this.cbBaohanh.Name = "cbBaohanh";
+            this.cbBaohanh.Size = new System.Drawing.Size(121, 21);
+            this.cbBaohanh.TabIndex = 59;
+            // 
             // QLSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 535);
+            this.Controls.Add(this.cbBaohanh);
+            this.Controls.Add(this.btnThemLoaisp);
             this.Controls.Add(this.txtTukhoa);
             this.Controls.Add(this.txtMotaSP);
             this.Controls.Add(this.label10);
@@ -472,5 +499,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtMotaSP;
         private System.Windows.Forms.TextBox txtTukhoa;
+        private System.Windows.Forms.Button btnThemLoaisp;
+        private System.Windows.Forms.ComboBox cbBaohanh;
     }
 }
